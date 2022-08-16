@@ -146,7 +146,7 @@ void merge_sort(int *arrayA, size_t size)
 {
 	int *arrayB;
 
-	if (size < 2)
+	if (!arrayA || size < 2)
 		return;
 
 	arrayB = malloc(sizeof(int) * size);
