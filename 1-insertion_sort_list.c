@@ -10,7 +10,7 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *next_num, *node, *num, *temp;
+	listint_t *next_num = NULL, *node = NULL, *temp = NULL;
 
 	node = *list;
 	if (!list || !(*list) || (*list)->next == NULL)
@@ -18,9 +18,9 @@ void insertion_sort_list(listint_t **list)
 
 	for (node = *list; node;)
 	{
-		next_num = node->next, num = node;
-		if (next_num && (num->n > next_num->n))
+		if (node->next && (node->n > node->next->n))
 		{
+			next_num = node->next;
 			for (temp = next_num; temp->prev; temp = temp->prev)
 				if (temp->prev->n < temp->n)
 					break;
@@ -50,4 +50,3 @@ void insertion_sort_list(listint_t **list)
 		node = node->next;
 	}
 }
-
