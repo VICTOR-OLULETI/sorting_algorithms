@@ -146,7 +146,13 @@ void merge_sort(int *arrayA, size_t size)
 {
 	int *arrayB;
 
+	if (size < 2)
+		return;
+
 	arrayB = malloc(sizeof(int) * size);
+	if (arrayB == NULL)
+		return;
 	copyArray(arrayA, 0, size, arrayB);
 	topDownSplitMerge(arrayB, 0, size, arrayA);
+	free(arrayB);
 }
