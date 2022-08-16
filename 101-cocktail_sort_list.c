@@ -50,6 +50,9 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *next_num, *node, *num;
 	char swapped = 1;
 
+	if (list == NULL || *list == NULL)
+		return;
+
 	node = *list;
 	while (swapped != 0)
 	{
@@ -64,9 +67,7 @@ void cocktail_sort_list(listint_t **list)
 				print_list(*list);
 			}
 			else
-			{
 				node = node->next;
-			}
 		}
 		if (swapped == 0)
 			break;
