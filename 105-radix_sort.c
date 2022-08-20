@@ -62,6 +62,9 @@ void countingSort(int *array, size_t size, int place)
 	/* copying the sorted elements into the original array */
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
+
+	free(count);
+	free(output);
 }
 
 /**
