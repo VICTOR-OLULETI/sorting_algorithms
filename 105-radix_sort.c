@@ -1,6 +1,25 @@
 #include "sort.h"
 
 /**
+ * getMax - gets the maximum value from an array
+ * @array: array of integers
+ * @size: size of @array
+ *
+ * Return: maximum value in array
+ */
+int getMax(int *array, size_t size)
+{
+	int max = array[0];
+	size_t i;
+
+	for (i = 1; i < size; i++)
+		if (array[i] > max)
+			max = array[i];
+
+	return (max);
+}
+
+/**
  * countingSort - sorts an array using counting sort
  * @array: array of integers
  * @size: size of array
@@ -57,17 +76,11 @@ void radix_sort(int *array, size_t size)
 {
 
 	int max, place;
-	size_t i;
 
 	if (array == NULL || size < 2)
 		return;
 
-	max = array[0];
-	for (i = 1; i < size; i++)
-	{
-		if (max < array[i])
-			max = array[i];
-	}
+	max = getMax(array, size);
 	for (place = 1; (max / place) > 0; place *= 10)
 	{
 		countingSort(array, size, place);
